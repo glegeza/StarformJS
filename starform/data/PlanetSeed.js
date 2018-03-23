@@ -5,7 +5,7 @@ class PlanetSeed {
 
         this.semiMajorAxisAU = a;
         this.eccentricity = e;
-        this.mass = m;
+        this.mass = mass;
         this.dustMass = dMass;
         this.gasMass = gMass;
         this.isGasGiant = false;
