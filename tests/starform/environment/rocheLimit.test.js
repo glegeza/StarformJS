@@ -59,16 +59,14 @@ describe('RocheLimit Tests', () => {
         }
 
         const params = testCases[testCase];
-        describe(`${testCase} roche limit`, () => {
-            it(`should return ${testCase} roche limit in AU`, () => {
-                var rAU = environment.rocheLimitAu(params.radius, params.bodyDensity, params.satDensity);
-                expect(rAU).toBeCloseTo(params.au);
-            });
-    
-            it(`should return ${testCase} roche limit in KM`, () => {
-                var rKM = environment.rocheLimitKm(params.radius, params.bodyDensity, params.satDensity);
-                expect(Math.round(rKM)).toBe(params.km);
-            });
+        it(`should return ${testCase} roche limit in AU`, () => {
+            var rAU = environment.rocheLimitAu(params.radius, params.bodyDensity, params.satDensity);
+            expect(rAU).toBeCloseTo(params.au);
+        });
+
+        it(`should return ${testCase} roche limit in KM`, () => {
+            var rKM = environment.rocheLimitKm(params.radius, params.bodyDensity, params.satDensity);
+            expect(Math.round(rKM)).toBe(params.km);
         });
     }
 });

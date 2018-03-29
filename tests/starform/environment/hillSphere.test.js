@@ -52,17 +52,15 @@ describe('HillSphere Tests', () => {
     for (const testCase in testCases) {
         if (testCases.hasOwnProperty(testCase)) {
             const params = testCases[testCase];
-            describe(`${testCase} hill sphere`, () => {
-                it(`should return ${testCase} hill sphere in AU`, () => {
-                    var hAU = environment.simplifiedHillSphereAu(params.M, params.m, params.a);
-                    expect(hAU).toBeCloseTo(params.au);
-                });
-        
-                it(`should return ${testCase} hill sphere in KM`, () => {
-                    var hKM = environment.simplifiedHillSphereKm(params.M, params.m, params.a);
-                    expect(Math.floor(hKM)).toBe(params.km);
-                });
-            })
+            it(`should return ${testCase} hill sphere in AU`, () => {
+                var hAU = environment.simplifiedHillSphereAu(params.M, params.m, params.a);
+                expect(hAU).toBeCloseTo(params.au);
+            });
+    
+            it(`should return ${testCase} hill sphere in KM`, () => {
+                var hKM = environment.simplifiedHillSphereKm(params.M, params.m, params.a);
+                expect(Math.floor(hKM)).toBe(params.km);
+            });
         }
     }
 });
