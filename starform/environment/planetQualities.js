@@ -1,7 +1,7 @@
 const GlobalConstants = require('../globalConstants');
-const Breathability = require('../data/Breathability');
 const PlanetType = require('../data/PlanetType');
 const Planet = require('../data/Planet');
+const breathability = require('./breathability');
 
 /**
  * Returns true if the planet is tidally locked to its parent body
@@ -16,9 +16,9 @@ const isTidallyLocked = (planet) => {
  * @param {Planet} planet The planet to test
  */
 const isHabitable = (planet) => {
-    return planet.atmosphere.breathability === Breathability.Breathable &&
+    return breathability.isBreathable(planet.atmosphere) &&
         !planet.hasResonantPeriod &&
-        !isTidallyLocked(planet);
+        !planet.isTidallyLocked;
 };
 
 /**
@@ -46,7 +46,7 @@ const isEarthlike = (planet) => {
         seas >= 50.0 &&
         seas <= 80.0 &&
         planet.type != PlanetType.Water &&
-        planet.atmosphere.breathability == Breathability.Breathable;
+        breathability.isBreathable(planet.atmosphere);
 };
 
 module.exports = {

@@ -1,18 +1,73 @@
 {
-    "tidallyLocked": [
-        {
-            "day": 24,
-            "orbitalPeriod": 1
-        }
-    ],
-    "notTidallyLocked": [
-        {
-            "day": 24,
-            "orbitalPeriod": 365
-        },
-        {
-            "day": 24,
-            "orbitalPeriod": 1.5
-        }
-    ]
+    "isTidallyLocked": {
+        "tidallyLocked": [
+            {
+                "day": 24,
+                "orbitalPeriod": 1
+            }
+        ],
+        "notTidallyLocked": [
+            {
+                "day": 24,
+                "orbitalPeriod": 365
+            },
+            {
+                "day": 24,
+                "orbitalPeriod": 1.5
+            }
+        ]
+    },
+    "isHabitable": {
+        "habitable": [
+            {
+                "atmosphere": {
+                    "breathability": "breathable"
+                },
+                "hasResonantPeriod": false,
+                "isTidallyLocked": false
+            }
+        ],
+        "uninhabitable": [
+            {
+                "reason": "has an unbreathable atmosphere",
+                "atmosphere": {
+                    "breathability": "unbreathable"
+                },
+                "hasResonantPeriod": false,
+                "isTidallyLocked": false
+            },
+            {
+                "reason": "has no atmosphere",
+                "atmosphere": {
+                    "breathability": "none"
+                },
+                "hasResonantPeriod": false,
+                "isTidallyLocked": false
+            },
+            {
+                "reason": "is tidally locked",
+                "atmosphere": {
+                    "breathability": "breathable"
+                },
+                "hasResonantPeriod": false,
+                "isTidallyLocked": true
+            },
+            {
+                "reason": "has a resonant orbital period",
+                "atmosphere": {
+                    "breathability": "breathable"
+                },
+                "hasResonantPeriod": true,
+                "isTidallyLocked": false
+            },
+            {
+                "reason": "has a poisonous atmosphere",
+                "atmosphere": {
+                    "breathability": "poisonous"
+                },
+                "hasResonantPeriod": false,
+                "isTidallyLocked": false
+            }
+        ]
+    }
 }
