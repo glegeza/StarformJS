@@ -1,0 +1,18 @@
+{
+    "tidallyLocked": [
+        {
+            "day": 24,
+            "orbitalPeriod": 1
+        }
+    ],
+    "notTidallyLocked": [
+        {
+            "day": 24,
+            "orbitalPeriod": 365
+        },
+        {
+            "day": 24,
+            "orbitalPeriod": 1.5
+        }
+    ]
+}
