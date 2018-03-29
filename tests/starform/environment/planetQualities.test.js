@@ -37,5 +37,18 @@ describe('isHabitable Tests', () => {
 });
 
 describe('isEarthlike Tests', () => {
+    const earthlike = testPlanets.isEarthlike.earthlike;
+    const notEarthlike = testPlanets.isEarthlike.notEarthlike;
 
+    it('should return true if a planet is like Earth', () => {
+        earthlike.forEach((p) => {
+            expect(environment.isEarthlike(p)).toBeTruthy();
+        });
+    })
+
+    notEarthlike.forEach((p) => {
+        it(`should return false if a planet ${p.reason}`, () => {
+            expect(environment.isEarthlike(p)).toBeFalsy();
+        });
+    });
 });

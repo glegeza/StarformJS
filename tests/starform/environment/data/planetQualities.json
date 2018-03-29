@@ -69,5 +69,115 @@
                 "isTidallyLocked": false
             }
         ]
+    },
+    "isEarthlike": {
+        "earthlike": [
+            {
+                "atmosphere": {
+                    "breathability": "breathable",
+                    "surfacePressure": 1013.25
+                },
+                "isTidallyLocked": false,
+                "hasResonantPeriod": false,
+                "surfaceGravity": 1,
+                "waterCover": 0.60,
+                "cloudCover": 0.60,
+                "iceCover": 0.05,
+                "type": "terrestrial",
+                "surfaceTemp": 288.15
+            }
+        ],
+        "notEarthlike": [
+            {
+                "reason": "gravity too high",
+                "atmosphere": {
+                    "breathability": "breathable",
+                    "surfacePressure": 1013.25
+                },
+                "isTidallyLocked": false,
+                "hasResonantPeriod": false,
+                "surfaceGravity": 3,
+                "waterCover": 0.60,
+                "cloudCover": 0.60,
+                "iceCover": 0.05,
+                "type": "terrestrial",
+                "surfaceTemp": 288.15
+            },
+            {
+                "reason": "too much water",
+                "atmosphere": {
+                    "breathability": "breathable",
+                    "surfacePressure": 1013.25
+                },
+                "isTidallyLocked": false,
+                "hasResonantPeriod": false,
+                "surfaceGravity": 1,
+                "waterCover": 1,
+                "cloudCover": 0.60,
+                "iceCover": 0.05,
+                "type": "terrestrial",
+                "surfaceTemp": 288.15
+            },
+            {
+                "reason": "is a water planet",
+                "atmosphere": {
+                    "breathability": "breathable",
+                    "surfacePressure": 1013.25
+                },
+                "isTidallyLocked": false,
+                "hasResonantPeriod": false,
+                "surfaceGravity": 1,
+                "waterCover": 0.60,
+                "cloudCover": 0.60,
+                "iceCover": 0.05,
+                "type": "water",
+                "surfaceTemp": 288.15
+            },
+            {
+                "reason": "has too much cloud cover",
+                "atmosphere": {
+                    "breathability": "breathable",
+                    "surfacePressure": 1013.25
+                },
+                "isTidallyLocked": false,
+                "hasResonantPeriod": false,
+                "surfaceGravity": 1,
+                "waterCover": 0.60,
+                "cloudCover": 0.90,
+                "iceCover": 0.05,
+                "type": "terrestrial",
+                "surfaceTemp": 288.15
+            },
+            {
+                "reason": "has too much ice cover",
+                "atmosphere": {
+                    "breathability": "breathable",
+                    "surfacePressure": 1013.25
+                },
+                "isTidallyLocked": false,
+                "hasResonantPeriod": false,
+                "surfaceGravity": 1,
+                "waterCover": 0.60,
+                "cloudCover": 0.60,
+                "iceCover": 0.20,
+                "type": "terrestrial",
+                "surfaceTemp": 288.15
+            },
+            {
+                "reason": "is too hot",
+                "atmosphere": {
+                    "breathability": "breathable",
+                    "surfacePressure": 1013.25
+                },
+                "isTidallyLocked": false,
+                "hasResonantPeriod": false,
+                "surfaceGravity": 1,
+                "waterCover": 0.60,
+                "cloudCover": 0.60,
+                "iceCover": 0.05,
+                "type": "terrestrial",
+                "surfaceTemp": 340
+            }
+        ]
     }
 }

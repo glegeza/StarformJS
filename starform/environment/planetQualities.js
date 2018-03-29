@@ -33,7 +33,7 @@ const isEarthlike = (planet) => {
     const pressure = planet.atmosphere.surfacePressure / GlobalConstants.EARTH_SURF_PRES_IN_MILLIBARS;
     const ice = planet.iceCover * 100.0;
 
-    return
+    return (
         planet.surfaceGravity >= .8 &&
         planet.surfaceGravity <= 1.2 &&
         relTemp >= -2.0 &&
@@ -45,8 +45,8 @@ const isEarthlike = (planet) => {
         clouds <= 80.0 &&
         seas >= 50.0 &&
         seas <= 80.0 &&
-        planet.type != PlanetType.Water &&
-        breathability.isBreathable(planet.atmosphere);
+        planet.type !== "water" &&
+        breathability.isBreathable(planet.atmosphere));
 };
 
 module.exports = {
