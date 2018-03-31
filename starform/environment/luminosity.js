@@ -3,6 +3,12 @@
  * @param {number} massRatio The mass of the star
  */
 const luminosity =  (massRatio) => {
+    if (typeof massRatio !== 'number') {
+        throw new TypeError('mass of the star must be a number');
+    }
+    if (massRatio <= 0) {
+        throw new RangeError('mass of the star must be positive');
+    }
     let n;
 
     if (massRatio < 1.0)

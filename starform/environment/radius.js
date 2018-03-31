@@ -7,6 +7,12 @@ const utilities = require('../utilities');
  * @param {Number} density Planet density in units of grams/cc
  */
 const volumeRadius = (mass, density) => {
+    if (typeof mass !== 'number' || typeof density !== 'number') {
+        throw new TypeError('mass and density must be numbers');
+    }
+    if (mass <= 0 || density <= 0) {
+        throw new RangeError('mass and density must be positive');
+    }
     const massGrams = mass * GlobalConstants.SOLAR_MASS_IN_GRAMS;
     const volume = massGrams / density;
     return (Math.pow((3.0 * volume) / (4.0 * Math.PI), (1.0 / 3.0)) / GlobalConstants.CM_PER_KM);
@@ -16,9 +22,9 @@ const volumeRadius = (mass, density) => {
  * Calculates the radius of a planet in km using mass and distance from star.
  * @param {Number} mass Planet mass in units of solar mass
  * @param {Number} zone Orbital zone of the planet
- * @param {Boolean} giant Is the planet a gas giant?
+ * @param {Boolean} isGiant Is the planet a gas giant?
  */
-const kothariRadius = (mass, giant, zone) => {
+const kothariRadius = (mass, isGiant, zone) => {
     // This formula is listed as eq.9 in Fogg's article, although some typos
     // crop up in that eq.  See "The Internal Constitution of Planets", by
     // Dr. D. S. Kothari, Mon. Not. of the Royal Astronomical Society, vol 96
@@ -26,12 +32,28 @@ const kothariRadius = (mass, giant, zone) => {
     // eq.23, which appears on page 840.
     // http://articles.adsabs.harvard.edu//full/1936MNRAS..96..833K/0000840.000.html
 
+    if (typeof mass !== 'number') {
+        throw new TypeError('mass must be a number');
+    }
+    if (typeof isGiant !== 'boolean') {
+        throw new TypeError('isGiant must be a boolean');
+    }
+    if (typeof zone !== 'number') {
+        throw new TypeError('zone must be a number');
+    }
+    if (mass <= 0) {
+        throw new RangeError('mass must be positive');
+    }
+    if (zone < 1 || zone > 3) {
+        throw new RangeError('zone must be between 1 and 3 inclusive');
+    }
+
     let temp1;
     let temp, temp2, atomic_weight, atomic_num;
 
     if (zone === 1)
     {
-        if (giant)
+        if (isGiant)
         {
             atomic_weight = 9.5;
             atomic_num = 4.5;
@@ -44,7 +66,7 @@ const kothariRadius = (mass, giant, zone) => {
     }
     else if (zone === 2)
     {
-        if (giant)
+        if (isGiant)
         {
             atomic_weight = 2.47;
             atomic_num = 2.0;
@@ -57,7 +79,7 @@ const kothariRadius = (mass, giant, zone) => {
     }
     else
     {
-        if (giant)
+        if (isGiant)
         {
             atomic_weight = 7.0;
             atomic_num = 4.0;
